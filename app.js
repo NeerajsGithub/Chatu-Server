@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import express from 'express';
-import mongoose from 'mongoose';
 import { router } from './routes/page.js';
 import { connectDb } from './data/page.js';
 import cors from 'cors';
@@ -19,7 +18,7 @@ connectDb();
 
 app.use(router);
 
-const PORT =  process.env.PORT;
+const PORT =  process.env.PORT || 5000;
 
 io.on('connection', (socket) => {
   console.log('A user connected');
